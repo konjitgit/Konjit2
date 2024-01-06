@@ -33,7 +33,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
           <img
             src={data.images[0].url}
             alt="picture"
-            className="w-[80px] h-[130px] md:w-[106px] md:h-[186px]"
+            className="w-[80px] h-[130px] md:w-[106px] md:h-[186px] object-contain"
           />
           <div className="p-2 flex-1 mr-5">
             <Link to={`/product/${data.name}`}>

@@ -146,7 +146,7 @@ const Nav = () => {
               <h2 className="pb-5 text-lg font-bold">Register as a</h2>
 
               <div className="bg-pink rounded-3xl w-[90%] p-1 text-white text-base text-center mx-auto shadow-md shadow-pink">
-                <Link to="/shop-login"> Buyer</Link>
+                <Link to="/login"> Buyer</Link>
               </div>
               <div className="flex items-center justify-center my-2 w-[90%]">
                 <hr className="border-t border-solid border-gray-400 w-1/4" />
@@ -154,7 +154,7 @@ const Nav = () => {
                 <hr className="border-t border-solid border-gray-400 w-1/4" />
               </div>
               <div className=" rounded-3xl w-[90%] p-1  text-base text-center mx-auto border-brown border-2 shadow-brown shadow-sm relative">
-                <Link to="/sign-up"> Seller</Link>
+                <Link to="/shop-login"> Seller</Link>
                 <div className="absolute top-[-156px] left-1/2 transform -translate-x-1/2 bg-beige w-4 h-4 rotate-45   border-t-[1px] border-l-[1px]"></div>
               </div>
             </div>

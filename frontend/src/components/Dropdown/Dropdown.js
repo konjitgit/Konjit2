@@ -59,7 +59,7 @@ const Category = ({ name, items, images, navigate }) => {
         onClick={handleCategoryClick}
       >
         {name}
-        <span className="underline"></span>
+        <span className="underline1"></span>
       </Link>
       <div
         className={`${

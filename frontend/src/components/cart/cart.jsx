@@ -64,7 +64,7 @@ const Cart = ({ setOpenCart }) => {
               <p className="text-xl font-bold">{total} ETB</p>
             </div>
           </div>
-          {/* <div className="px-5 mb-3">
+          <div className="px-5 mb-3">
             <Link to="/checkout">
               <div
                 className={`h-[45px] flex items-center justify-center w-[100%] bg-pink rounded-[5px] shadow-black shadow-md hover:bg-black transition-all`}
@@ -72,7 +72,7 @@ const Cart = ({ setOpenCart }) => {
                 <h1 className="text-white text-[20px] font-[600]">Checkout</h1>
               </div>
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

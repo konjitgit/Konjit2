@@ -58,7 +58,7 @@ function SellerHeader() {
                 className="name text-xs md:text-base lg:text-lg"
               >
                 Home
-                <span className="underline"></span>
+                <span className="underline1"></span>
               </Link>
             </li>
             <li
@@ -73,7 +73,7 @@ function SellerHeader() {
                 className="name text-xs md:text-base lg:text-lg"
               >
                 Sell
-                <span className="underline"></span>
+                <span className="underline1"></span>
               </Link>
             </li>
             <li
@@ -88,7 +88,7 @@ function SellerHeader() {
                 className="name text-xs md:text-base lg:text-lg"
               >
                 Products
-                <span className="underline"></span>
+                <span className="underline1"></span>
               </Link>
             </li>
             <li
@@ -103,7 +103,7 @@ function SellerHeader() {
                 className="name text-xs md:text-base lg:text-lg"
               >
                 Inbox
-                <span className="underline"></span>
+                <span className="underline1"></span>
               </Link>
             </li>
           </ul>

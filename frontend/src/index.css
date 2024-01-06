@@ -220,7 +220,7 @@ label[for] {
   );
 }
 
-.underline {
+.underline1 {
   position: absolute;
   left: 50%;
   bottom: 0.4375rem;
@@ -252,7 +252,7 @@ label[for] {
   background-color: var(--pink);
   transition: width 0.3s ease-in-out, left 1s ease-in-out;
 }
-.hovered .underline {
+.hovered .underline1 {
   width: 100%;
   left: 0;
 }
