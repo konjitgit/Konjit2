@@ -5,6 +5,8 @@ const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/ErrorHandler");
 const userRouter = express.Router();
 const connectDatabase = require("../db/Database");
+const jwt = require("jsonwebtoken");
+const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 userRouter.post(
@@ -164,11 +166,16 @@ userRouter.post("/reset-password", async (req, res, next) => {
   }
 });
 // create activation token
+// Updated implementation
 const createActivationToken = (user) => {
-  console.log(user);
-  return jwt.sign(user, process.env.ACTIVATION_SECRET, {
+  const userPayload = {
+    _id: user._id,
+    email: user.email,
+    
+  };
+
+  return jwt.sign(userPayload, process.env.ACTIVATION_SECRET, {
     expiresIn: "15m",
-    //the problem seems to be here since the user is in but we cant get activation token
   });
 };
 
@@ -207,7 +214,6 @@ userRouter.post(
     }
   })
 );
-// change new password
 userRouter.put(
   "/change-new-password",
   catchAsyncErrors(async (req, res, next) => {
@@ -238,7 +244,6 @@ userRouter.put(
     }
   })
 );
-
 
 
 userRouter.get(
