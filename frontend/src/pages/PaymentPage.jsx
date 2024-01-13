@@ -1,6 +1,6 @@
 import React from "react";
 
-import Payment from "../components/Payment/payment.jsx";
+import Payment from "../components/Checkout/Payment";
 
 function PaymentPage() {
   return (

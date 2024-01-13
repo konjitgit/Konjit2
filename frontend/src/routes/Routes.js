@@ -3,7 +3,7 @@ import SignUpPage from "../pages/SignUp";
 import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
-import PaymentPage from "../pages/PaymentPage.jsx";
+
 import CartPage from "../pages/CartPage";
 import WishlistPage from "../pages/WishlistPage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -21,6 +21,7 @@ import ShopHomePage from "../pages/Shop/ShopHomePage.jsx";
 import UserInbox from "../pages/UserInbox";
 import ResetPassword from "../pages/ResetPassword.jsx";
 import PasswordActivationPage from "../pages/PasswordActivationPage.jsx";
+import PaymentPage from "../components/Checkout/Payment.jsx";
 export {
   LoginPage,
   SignUpPage,
@@ -45,4 +46,6 @@ export {
   UserInbox,
   ResetPassword,
   PasswordActivationPage,
+
+  
 };
