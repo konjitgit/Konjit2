@@ -1,2 +1,2 @@
-export const server = "http://localhost:5000/api"
+export const server = "https://konjit2.vercel.app/api"
 // "https://tester-tan.vercel.app/api";
