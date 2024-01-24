@@ -13,6 +13,9 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+app.use("/", (req, res) => {
+  res.send("hello world ");
+});
 
 const productsRouter = require("./controller/product");
 const shopRouter = require("./controller/shop");
@@ -27,8 +30,6 @@ app.use("/api/user", userRouter);
 app.use("/api/order", OrdersRouter);
 app.use("/api/conversation", conversationRouter);
 app.use("/api/message", messageRouter);
-
-
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 // config
