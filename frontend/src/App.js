@@ -24,6 +24,7 @@ import {
   UserInbox,
   ResetPassword,
   PasswordActivationPage,
+  OrderSuccessPage,
 } from "./routes/Routes.js";
 
 import {
@@ -90,6 +91,7 @@ function App() {
           <Route path="/gift-package" element={<GiftPackagePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/seller-profile/:id" element={<SellerProfilePage />} />
+          <Route path="/order-success" element= {< OrderSuccessPage/>} />
 
           {/* user protected routes */}
           <Route

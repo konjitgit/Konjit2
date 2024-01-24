@@ -12,7 +12,7 @@ OrdersRouter.post(
   "/create-order",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { cart, shippingAddress, user, totalPrice, paymentInfo } = req.body;
+      const { cart, shippingAddress, deliveryMethod ,user, totalPrice, paymentInfo  } = req.body;
 
       //   group cart items by shopId
       const shopItemsMap = new Map();
@@ -32,9 +32,11 @@ OrdersRouter.post(
         const order = await Order.create({
           cart: items,
           shippingAddress,
+          deliveryMethod,
           user,
           totalPrice,
           paymentInfo,
+          
         });
         orders.push(order);
       }

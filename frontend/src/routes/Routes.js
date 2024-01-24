@@ -21,7 +21,8 @@ import ShopHomePage from "../pages/Shop/ShopHomePage.jsx";
 import UserInbox from "../pages/UserInbox";
 import ResetPassword from "../pages/ResetPassword.jsx";
 import PasswordActivationPage from "../pages/PasswordActivationPage.jsx";
-import PaymentPage from "../components/Checkout/Payment.jsx";
+import PaymentPage from "../pages/PaymentPage.jsx"
+import OrderSuccessPage from "../pages/OrderSuccessPage.jsx";
 export {
   LoginPage,
   SignUpPage,
@@ -46,6 +47,6 @@ export {
   UserInbox,
   ResetPassword,
   PasswordActivationPage,
-
+  OrderSuccessPage,
   
 };

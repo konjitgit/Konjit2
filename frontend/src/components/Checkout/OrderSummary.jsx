@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,7 +12,7 @@ function OrderSummary({
   couponCode,
   setCouponCode,
   discountPercentenge,
-  data,
+  
   showDiv,
 }) {
   const { cart } = useSelector((state) => state.cart);
@@ -29,7 +28,7 @@ function OrderSummary({
     <div className="p-4">
       <div className="bg-beige flex justify-between p-3">
         <span>
-          <span className="sm:hidden">Show </span>
+          <span className="sm:hidden inline-block">Show </span>
           <span>
             {" "}
             Order summary
@@ -51,7 +50,7 @@ function OrderSummary({
           </span>{" "}</span>
           {/*number of items in the data */}
           <span className="hidden 900px:block">{numberOfItems} {numberOfItems !== 1 ? 'items' : 'item'}</span>{" "}
-
+        
         <span className="900px:hidden">{totalPrice}</span>
       </div>
 
@@ -74,36 +73,42 @@ function OrderSummary({
 
         <div className="w-full bg-[#fff]  p-5 pb-8 pt-8 border-t-2 border-t-[#000000] border-opacity-30 mt-8">
           <div className="">
+          {cart &&
+                cart.map((i, index) => {
+                 
+                  return (
             <div className="flex flex-nowrap items-center justify-between">
               <div className="flex items-center gap-4">
                 <img
-                  src={data?.images[0]?.url}
+                  src={i?.images[0]?.url}
                   alt="picture"
                   className="w-[133px] h-[202px] md:w-[106px] md:h-[186px]"
                 />
                 <div className="p-2 flex-1 mr-5">
-                  <Link to={`/productdata.name}`}>
+                  <Link to={`/productdata.name`}>
                     <p className="text-base md:text-lg font-semibold pb-3">
-                      {data.name}
+                      {i.name}
                     </p>
                   </Link>
                   <p className="text-sm md:text-base text-gray-500 pb-2">
-                    {data.category[0].name}
+                    {i.category[0].name}
                   </p>
                   <p className="text-sm md:text-base pb-2">
                     $
                     <span className="line-through pr-2 text-red-500">
-                      {data.originalPrice}
+                      {i.originalPrice}
                     </span>
-                    {data.discountPrice}
+                    {i.discountPrice}
                   </p>
                   <p className="text-sm sm:text-base pb-2">
-                    Quantity: {data.qty}
+                    Quantity: {i.qty}
                   </p>
-                  <p className="text-sm md:text-base">${data.discountPrice}</p>
+                  <p className="text-sm md:text-base">${i.discountPrice}</p>
                 </div>
               </div>
             </div>
+                  )}
+                )}
           </div>
         </div>
 

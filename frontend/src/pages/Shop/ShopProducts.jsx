@@ -7,6 +7,7 @@ import SellerProductCard from "../../Route/SellerProductCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import Loader from "../../components/Layout/Loader";
+import AllOrders from "../../components/Shop/AllOrders";
 function ShopProducts() {
   const dispatch = useDispatch();
   const { allProducts } = useSelector((state) => state.products);
