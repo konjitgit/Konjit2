@@ -14,8 +14,8 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api",  (req, res) => {
-   res("helloo");
+app.use("/",  (req, res) => {
+   res.send("hello");
 });
 
 const productsRouter = require("./controller/product");
