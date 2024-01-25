@@ -14,7 +14,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", async (req, res) => {
+app.use("/api", async (req, res) => {
   try {
     await connectDatabase();
     const products = await Product.find();
