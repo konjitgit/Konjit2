@@ -14,16 +14,8 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api", async (req, res) => {
-  try {
-    await connectDatabase();
-    const products = await Product.find();
-    res.json(products);
-  } catch (error) {
-    console.error(error.message);
-    console.error(error.stack);
-    res.status(500).json({ success: false, message: error.message });
-  }
+app.use("/api",  (req, res) => {
+   res("helloo");
 });
 
 const productsRouter = require("./controller/product");
