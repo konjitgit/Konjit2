@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const Product = require("../models/product");
 
 app.use(
   cors({
@@ -13,8 +14,16 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", (req, res) => {
-  res.send("hello world ");
+app.use("/", async (req, res) => {
+  try {
+    await connectDatabase();
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    console.error(error.message);
+    console.error(error.stack);
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
 
 const productsRouter = require("./controller/product");
