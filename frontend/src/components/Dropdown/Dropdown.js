@@ -241,17 +241,6 @@ const Dropdown = ({ props }) => {
             <p className=" text-3xl font-bold ">Konjit</p>{" "}
           </Link>
           <div className="flex gap-4 items-center">
-            {/* <div className="relative ">
-              <AiOutlineShoppingCart
-                onClick={() => setOpenCart(true)}
-                color="#444"
-                title="Add to cart"
-                className="cursor-pointer  text-[25px] "
-              />
-              <span className="border-red-100 w-3 h-3 text-[9px]  text-center bg-pink text-white rounded-full absolute top-0 right-0">
-                {cart && cart.length}
-              </span>
-            </div> */}
             <div className=" relative">
               <Link to={isAuthenticated ? "/user" : "/login"}>
                 {isAuthenticated ? (
@@ -273,24 +262,35 @@ const Dropdown = ({ props }) => {
                   <RxAvatar
                     size={30}
                     color="#444"
-                    title="Add to cart"
+                    title=""
                     className="cursor-pointer text-[25px]"
                   />
                 )}
               </Link>
             </div>
             <div className="relative ">
+              <AiOutlineShoppingCart
+                onClick={() => setOpenCart(true)}
+                color="#444"
+                title="Add to cart"
+                className="cursor-pointer  text-[25px] "
+              />
+              <span className="border-red-100 w-3 h-3 text-[9px]  text-center bg-pink text-white rounded-full absolute top-0 right-0">
+                {cart && cart.length}
+              </span>
+            </div>
+            {/* <div className="relative ">
               <Link to={`/wishlist`}>
                 <AiOutlineHeart
                   color="#444"
-                  title="Add to cart"
+                  title="Wishlist"
                   className="cursor-pointer  text-[25px] "
                 />
               </Link>
               <span className="border-red-100 w-3 h-3 text-[9px] text-center bg-pink text-white rounded-full absolute top-0 right-0">
                 {wishlist && wishlist.length}
               </span>
-            </div>
+            </div> */}
           </div>
           {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
         </div>
