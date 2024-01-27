@@ -58,7 +58,7 @@ const Login = () => {
     console.log("Email:", email);
     await axios
       .post(
-        `http://localhost:5000/api/user/google-login`,
+        `${server}/user/google-login`,
         {
           googleId,
         },

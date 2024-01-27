@@ -146,8 +146,8 @@ userRouter.post("/reset-password", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
     console.log(activationToken);
-    const activationUrl = `http://localhost:3000/activation/${activationToken}`;
-
+   // const activationUrl = `http://localhost:3000/activation/${activationToken}`;
+   const activationUrl = `https://konjit2-pous.vercel.app/activation/${activationToken}`
     try {
       await sendMail({
         email: user.email,

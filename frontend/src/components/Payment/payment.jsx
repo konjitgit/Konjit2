@@ -229,7 +229,7 @@ const Payment2 = () => {
           name="callback_url"
           value="https://example.com/callbackurl"
         />
-        <input type="hidden" name="return_url" value="http://localhost:3000/order-success" />
+        <input type="hidden" name="return_url" value="https://konjit2-pous.vercel.app/order-success" />
         <input type="hidden" name="meta[title]" value="test" />
 
         <button type="submit" className={`${styles.button}`}>

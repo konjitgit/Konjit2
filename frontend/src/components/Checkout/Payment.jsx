@@ -54,7 +54,7 @@ const Payment = () => {
 
         <input type="hidden" name="logo" value="https://chapa.link/asset/images/chapa_swirl.svg" />
         <input type="hidden" name="callback_url" value="https://example.com/callbackurl" />
-        <input type="hidden" name="return_url" value="http://localhost:3000/" />
+        <input type="hidden" name="return_url" value="https://konjit2-pous.vercel.app/" />
         <input type="hidden" name="meta[title]" value="test" />
 
         <button type="submit" className="payment-form__button">Pay Now</button>
