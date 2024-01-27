@@ -69,7 +69,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route
-            path="/activation:activation_token"
+            path="/activation/:activation_token"
             element={<PasswordActivationPage />}
           />
           <Route path="/sign-up" element={<SignUpPage />} />

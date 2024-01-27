@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://konjit2-pous.vercel.app",
     // "https://tester-j7yp.vercel.app"
     credentials: true,
   })
