@@ -3,20 +3,20 @@ const cors = require("cors");
 const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const Product = require("../models/product");
+// const Product = require("../models/product");
 
 app.use(
   cors({
-    origin: "https://konjit2-pous.vercel.app",
+    origin: "http://localhost:3000",
     // "https://tester-j7yp.vercel.app"
     credentials: true,
   })
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use("/",  (req, res) => {
-   res.send("hello");
-});
+// app.use("/",  (req, res) => {
+//    res.send("hello");
+// });
 
 const productsRouter = require("./controller/product");
 const shopRouter = require("./controller/shop");
