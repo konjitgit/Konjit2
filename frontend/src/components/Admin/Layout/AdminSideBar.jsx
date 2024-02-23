@@ -8,12 +8,13 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsHandbag, BsShopWindow } from "react-icons/bs";
 import { AiOutlineSetting, AiOutlineCheckCircle } from "react-icons/ai";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import { FaComment } from "react-icons/fa";
 
 const AdminSideBar = ({ active }) => {
   
   return (
     <div
-      className={`w-full h-[90vh] 
+      className={`w-full h-fit 
       bg-white shadow-xl sticky top-5 left-0 z-10 flex flex-col items-center`}
     >
       <div className="w-full flex items-center p-4">
@@ -112,12 +113,29 @@ const AdminSideBar = ({ active }) => {
       </div>
       <div className="w-full flex items-center p-4">
         <Link
-          to="/admin-withdraw-request"
+          to="/admin-comments"
           className={`w-full flex items-center px-2 py-2 ${
             active === 7 ? "text-white bg-pink rounded" : "text-[#555]"
           }`}
         >
-          <CiMoneyBill size={30} color={`${active === 7 ? "white" : "#555"}`} />
+          <FaComment size={30} color={`${active === 7 ? "white" : "#555"}`} />
+          <h5
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 7 ? "text-white" : "text-[#555]"
+            }`}
+          >
+            All Comments
+          </h5>
+        </Link>
+      </div>
+      <div className="w-full flex items-center p-4">
+        <Link
+          to="/admin-withdraw-request"
+          className={`w-full flex items-center px-2 py-2 ${
+            active === 8 ? "text-white bg-pink rounded" : "text-[#555]"
+          }`}
+        >
+          <CiMoneyBill size={30} color={`${active === 8 ? "white" : "#555"}`} />
           <h5 className={`hidden 800px:block pl-2 text-[18px] font-[400] `}>
             Withdraw Request
           </h5>
@@ -127,12 +145,12 @@ const AdminSideBar = ({ active }) => {
         <Link
           to="/user"
           className={`w-full flex items-center px-2 py-2${
-            active === 8 ? "text-white bg-pink rounded" : "text-[#555]"
+            active === 9 ? "text-white bg-pink rounded" : "text-[#555]"
           }`}
         >
           <AiOutlineSetting
             size={30}
-            color={`${active === 8 ? "white" : "#555"}`}
+            color={`${active === 9 ? "white" : "#555"}`}
           />
           <h5 className={`hidden 800px:block pl-2 text-[18px] font-[400]`}>
             Settings
