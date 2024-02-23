@@ -21,10 +21,11 @@ function ShopProducts() {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
 
-  const currentProducts =
-    selectedTab === "products"
-      ? allProducts.slice(indexOfFirstProduct, indexOfLastProduct)
-      : [];
+  const currentProducts = allProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -51,7 +52,11 @@ function ShopProducts() {
     },
   };
   if (!allProducts) {
-    return <div><Loader /></div>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
   return (
     <div>
@@ -91,34 +96,42 @@ function ShopProducts() {
               All Orders
             </p>
           </div>
-          <div className="cards bg-beige grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-10 place-items-center gap-9 mt-10">
-            {currentProducts &&
-              currentProducts.map((product, index) => {
-                return (
-                  <div className="w-fit" key={index}>
-                    <SellerProductCard data={product} />
-                  </div>
-                );
-              })}
-          </div>
-          <div className="flex justify-center mt-5">
-            {Array.from(
-              { length: Math.ceil(allProducts.length / productsPerPage) },
-              (_, index) => (
-                <button
-                  key={index}
-                  className={`mx-1 px-3 py-2 rounded ${
-                    currentPage === index + 1
-                      ? "bg-pink text-white"
-                      : "bg-beige text-gray-700"
-                  }`}
-                  onClick={() => paginate(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              )
-            )}
-          </div>
+          {selectedTab === "orders" ? (
+            <div className="">
+              <AllOrders />
+            </div>
+          ) : (
+            <div>
+              <div className="cards bg-beige grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-10 place-items-center gap-9 mt-10">
+                {currentProducts &&
+                  currentProducts.map((product, index) => {
+                    return (
+                      <div className="w-fit" key={index}>
+                        <SellerProductCard data={product} />
+                      </div>
+                    );
+                  })}
+              </div>
+              <div className="flex justify-center mt-5">
+                {Array.from(
+                  { length: Math.ceil(allProducts.length / productsPerPage) },
+                  (_, index) => (
+                    <button
+                      key={index}
+                      className={`mx-1 px-3 py-2 rounded ${
+                        currentPage === index + 1
+                          ? "bg-pink text-white"
+                          : "bg-beige text-gray-700"
+                      }`}
+                      onClick={() => paginate(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  )
+                )}
+              </div>
+            </div>
+          )}
 
           <Footer />
         </>
