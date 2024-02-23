@@ -26,9 +26,9 @@ const AllOrders = () => {
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
+     return ( 
+          params.value === "Delivered" ? "bg-green-400 text-white" : "bg-pink/30 text-white");
+     
       },
     },
     {
@@ -85,13 +85,15 @@ const AllOrders = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+        <div className="w-full pt-1 mt-10 px-6">
           <DataGrid
             rows={row}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             autoHeight
+            
+            className="bg-beige"
           />
         </div>
       )}
