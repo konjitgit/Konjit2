@@ -19,9 +19,9 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#" className="text-gray-700 hover:text-pink">
+              <Link to="/contact" className="text-gray-700 hover:text-pink">
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="text-gray-700 hover:text-pink">
