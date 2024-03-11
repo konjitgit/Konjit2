@@ -6,14 +6,15 @@ const { isAuthenticated, isSeller, isAdmin } = require("../middleware/auth");
 const Order = require("../models/order");
 const Shop = require("../models/shop");
 const Product = require("../models/product");
+const sendMail = require("../utils/sendMail");
 
 // create new order
 OrdersRouter.post(
   "/create-order",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { cart, shippingAddress, deliveryMethod ,user, totalPrice, paymentInfo  } = req.body;
-
+      const { cart, shippingAddress, deliveryMethod ,onCashDelivery,user,name,phoneNumber, totalPrice, paymentInfo  } = req.body;
+      console.log(name)
       //   group cart items by shopId
       const shopItemsMap = new Map();
 
@@ -33,7 +34,10 @@ OrdersRouter.post(
           cart: items,
           shippingAddress,
           deliveryMethod,
+          onCashDelivery,
           user,
+          name,
+          phoneNumber,
           totalPrice,
           paymentInfo,
           
@@ -41,9 +45,72 @@ OrdersRouter.post(
         orders.push(order);
       }
 
-      res.status(201).json({
+      // Customize the order summary
+const formattedOrders = orders.map((order) => {
+  // Customize the content based on your Order model structure
+  return {
+    orderId: order._id,
+    items: order.cart.map((item) => ({
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+    })),
+    total: order.totalPrice,
+  };
+});
+
+// Create the order summary message with HTML formatting
+const orderSummary = `
+  <html>
+    <body>
+      <h1>Hello ${name},</h1>
+      <p>Here is your order summary:</p>
+      <ul>
+        ${formattedOrders
+          .map(
+            (formattedOrder) => `
+              <li>
+                <strong>Order ID:</strong> ${formattedOrder.orderId}
+                <ul>
+                  ${formattedOrder.items
+                    .map(
+                      (item) => `
+                        <li>
+                          <strong>Name:</strong> ${item.name}<br />
+                          <strong>Quantity:</strong> ${item.quantity}<br />
+                          <strong>Price:</strong> ${item.price}
+                        </li>
+                      `
+                    )
+                    .join("")}
+                </ul>
+                <strong>Total:</strong> ${formattedOrder.total}
+              </li>
+            `
+          )
+          .join("")}
+      </ul>
+    </body>
+    <footer>
+    <p>Contact konjitservice@konjit.com for any issue</p>
+    <p>Thank You for shopping with us!!!!</p>
+    </footer>
+  </html>
+`;
+
+      try {
+        await sendMail({
+          email: user.email,
+          subject: "Order Summary",
+          html: orderSummary,
+        })
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+     res.status(201).json({
         success: true,
         orders,
+        message: `Please check your email:- ${user.email} for order details!`,
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));

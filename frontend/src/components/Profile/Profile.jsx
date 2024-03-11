@@ -20,14 +20,23 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import Avatar from "react-avatar";
 import Loader from "../Layout/Loader";
+import AllUserOrders from "./AllUserOrders"
 function Profile({ active }) {
   return (
     <div>
+      {console.log(active)}
       {/* account details */}
+
       {/* profile */}
       {active === 5 && (
         <div>
           <UserDetail />
+        </div>
+      )}
+      {/* user Orders */}
+      {active === 7 && (
+        <div>
+          <MyOrder />
         </div>
       )}
       {/* Address book */}
@@ -546,5 +555,18 @@ const Address = () => {
     </div>
   );
 };
+
+const MyOrder = () => {
+  return(
+    <>
+    <div className="bg-beige text-center text-3xl sm:text-4xl font-medium text-black px-4 py-2  border-[#505050] border-b-0 rounded-t-lg  border flex justify-around items-center uppercase">
+              Orders
+            </div>
+            <div className="border-[#505050]  border-t-0 border "><AllUserOrders/></div>
+              
+            </>
+  )
+ 
+}
 
 export default Profile;

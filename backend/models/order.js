@@ -12,10 +12,20 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  onCashDelivery: {
+    type: Boolean,
+    default: false,
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
+  },
+  name:{
+    type :String ,
+  },
+  phoneNumber:{
+    type :Number ,
   },
   totalPrice: {
     type: Number,

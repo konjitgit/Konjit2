@@ -6,7 +6,9 @@ import { server } from "../server";
 import axios from 'axios'
 
 function OrderSuccessPage() {
-  
+  const orderData = localStorage.getItem("latestOrder")
+  ? JSON.parse(localStorage.getItem("latestOrder"))
+  : [];
   
  // const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -14,23 +16,39 @@ function OrderSuccessPage() {
   useEffect(() => {
    
     PaymentHandler()
-  }, []);
-  const orderData = localStorage.getItem("latestOrder")
-  ? JSON.parse(localStorage.getItem("latestOrder"))
-  : [];
+  }, );
+  
 
-
+console.log(orderData)
   const cart = orderData?.cart
   const  shippingAddress= orderData?.shippingAddress
   const deliveryMethod = orderData?.deliveryMethod
+  const onCashDelivery = orderData?.onCashDelivery
   const user = orderData?.user
   const  totalPrice =  orderData?.totalPrice
+  const  name =  orderData?.name
+  const  phoneNumber =  orderData?.phoneNumber
 
-  const paymentInfo =  {
-    id: orderData?.user._id,
-    status: "succeeded",
-    type: "chapa",
+  let paymentInfo = {};
+
+  if (!onCashDelivery) {
+    paymentInfo = {
+      id: orderData?.user._id,
+      status: "succeeded",
+      type: "chapa",
+    };
+  } else {
+    paymentInfo = {
+      status: "pending",
+      type: "cash",
+    };
   }
+
+  // const paymentInfo =  {
+  //   id: orderData?.user._id,
+  //   status: "succeeded",
+  //   type: "chapa",
+  // }
 
 /*  const order = {
     cart: orderData?.cart,
@@ -59,7 +77,7 @@ function OrderSuccessPage() {
 
     await axios
       .post(`${server}/order/create-order`, 
-      {cart, shippingAddress,deliveryMethod, user, totalPrice, paymentInfo}, 
+      {cart, shippingAddress,deliveryMethod,onCashDelivery, user,name,phoneNumber,totalPrice, paymentInfo}, 
       config)
       .then((res) => {
        

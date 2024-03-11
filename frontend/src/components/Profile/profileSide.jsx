@@ -106,9 +106,9 @@ const ProfileSide = ({ setActive, active }) => {
             >
               <p
                 className={`${
-                  active === 1 ? "text-pink" : ""
+                  active === 7 ? "text-pink" : ""
                 } pb-2 hover:text-pink `}
-                onClick={() => setActive(1)}
+                onClick={() => setActive(7)}
               >
                 My Orders
               </p>
