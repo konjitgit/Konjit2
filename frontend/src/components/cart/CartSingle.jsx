@@ -44,9 +44,9 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
             <p className="text-sm md:text-base text-gray-500 pb-2">
               {data.category[0].name}
             </p>
-            <p className="text-sm md:text-base pb-2">
-              $
-              <span className="line-through pr-2 text-red-500">
+             <p className="text-sm md:text-base pb-2">
+              ETB
+              <span className="line-through pr-2 pl-1 text-red-500">
                 {data.originalPrice}
               </span>
               {data.discountPrice}
@@ -76,7 +76,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         </div>
         <div className="w-fit ml-10">
           <div className="w-[90px] md:w-[115px]">
-            <p className="text-center text-sm md:text-base">${totalPrice}</p>
+           <p className="text-center text-sm md:text-base">ETB {totalPrice}</p>
             <hr className="h-0.5 w-[70%] lg:w-[80%] mx-auto bg-black my-2" />
             <button
               className="font-medium w-full text-base lg:text-xl"

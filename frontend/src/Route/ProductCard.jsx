@@ -50,12 +50,12 @@ const ProductCard = ({ data }) => {
           />
           {/* add to cart button */}{" "}
         </Link>
-        <div className="cursor-pointer z-0 absolute h-full w-full bg-black/20 flex items-center text-white justify-center -bottom-30 group-hover:bottom-0 group-hover:opacity-100 transition-all duration-300">
+       <div className="cursor-pointer z-0 absolute h-full w-full bg-black/60 flex items-center text-white justify-center -bottom-30 group-hover:bottom-0 group-hover:opacity-100 transition-all duration-300">
           <AiOutlineShoppingCart
             size={25}
             onClick={() => addToCartHandler(data._id)}
-            color="#444"
             title="Add to cart"
+            className="  rounded-md"
           />
         </div>
       </div>

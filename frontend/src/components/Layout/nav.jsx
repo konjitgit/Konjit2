@@ -192,7 +192,7 @@ const Nav = () => {
             <AiOutlineShop
               size={30}
               color="#444"
-              title="Add to cart"
+               title="Go to shop"
               className=""
             />
           ) : (
