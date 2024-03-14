@@ -514,3 +514,9 @@ label[for] {
   left: 0px;
 }
 
+.contactImage{
+  background-image: url("./assets/images/FragranceProducts2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
