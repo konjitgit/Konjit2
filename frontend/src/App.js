@@ -24,7 +24,7 @@ import {
   UserInbox,
   ResetPassword,
   PasswordActivationPage,
-  OrderSuccessPage,
+  OrderSuccessPage,ContactPage
 } from "./routes/Routes.js";
 
 import {
@@ -32,7 +32,7 @@ import {
   ShopProducts,
   ShopSettingsPage,
   ShopProfilePage,
-  ShopInboxPage,
+  ShopInboxPage,  ShopOrderDetails,
 } from "./routes/ShopRoutes";
 
 import {
@@ -41,7 +41,7 @@ import {
   AdminDashboardSellers,
   AdminDashboardProducts,
   AdminDashboardOrders,
-  AdminDashboardRequests,
+  AdminDashboardRequests, AdminDashboardComments,
 } from "./routes/AdminRoutes";
 
 import { Provider } from "react-redux";
@@ -69,7 +69,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route
-            path="/activation/:activation_token"
+            path="/activation:activation_token"
             element={<PasswordActivationPage />}
           />
           <Route path="/sign-up" element={<SignUpPage />} />
@@ -80,6 +80,7 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/user" element={<UserProfile />} />
           <Route path="*" element={<NotFoundPage />} />
@@ -185,6 +186,24 @@ function App() {
               </ProtectedAdminRoute>
             }
           />
+            <Route
+            path="/admin-comments"
+            element={
+              <ProtectedAdminRoute>
+                <AdminDashboardComments />
+              </ProtectedAdminRoute>
+            }
+          />
+            <Route
+            path="/order/:id"
+            element={
+              <SellerProtectedRoute>
+                <ShopOrderDetails />
+              </SellerProtectedRoute>
+            }
+          />
+            
+
         </Routes>
         <ToastContainer
           position="bottom-center"
