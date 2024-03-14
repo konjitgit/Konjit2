@@ -3,7 +3,7 @@ import SignUpPage from "../pages/SignUp";
 import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
-
+import ContactPage from "../pages/ContactPage.jsx";
 import CartPage from "../pages/CartPage";
 import WishlistPage from "../pages/WishlistPage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -48,5 +48,6 @@ export {
   ResetPassword,
   PasswordActivationPage,
   OrderSuccessPage,
-  
+  ContactPage
+
 };
