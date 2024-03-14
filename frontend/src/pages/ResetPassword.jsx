@@ -16,7 +16,7 @@ function ResetPassword() {
         { withCredentials: true }
       )
       .then((res) => {
-        toast.success(res.data.success);
+        toast.success(res.data.message);
         setEmail("");
       })
       .catch((err) => {
