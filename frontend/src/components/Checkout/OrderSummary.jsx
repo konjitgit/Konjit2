@@ -58,7 +58,7 @@ function OrderSummary({
         <form className="flex h-10 mt-7 mb-4" onSubmit={handleSubmit}>
           <input
             className="border border-r-0 border-black  px-4 py-2 w-full placeholder-[#252525]    shadow-sm  focus:outline-none focus:border-[#B5B5B5;] focus:ring-[#B5B5B5;] block  text-sm focus:ring-1"
-            type="email"
+            type="text"
             placeholder="Promo code"
             value={couponCode}
             onChange={(e) => setCouponCode(e.target.value)}
@@ -79,11 +79,13 @@ function OrderSummary({
                   return (
             <div className="flex flex-nowrap items-center justify-between">
               <div className="flex items-center gap-4">
+              <Link to={`/productdata.name`}>
                 <img
                   src={i?.images[0]?.url}
                   alt="picture"
                   className="w-[133px] h-[202px] md:w-[106px] md:h-[186px]"
                 />
+                </Link>
                 <div className="p-2 flex-1 mr-5">
                   <Link to={`/productdata.name`}>
                     <p className="text-base md:text-lg font-semibold pb-3">
