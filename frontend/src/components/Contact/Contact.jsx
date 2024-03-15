@@ -5,7 +5,6 @@ import { server } from "../../server";
 import { toast } from "react-toastify";
 import { FaFacebook, FaInstagram, FaPhone, FaPinterest, FaTwitter } from "react-icons/fa";
 import { CiLocationOn, CiMail } from "react-icons/ci";
-
 function Contact() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
