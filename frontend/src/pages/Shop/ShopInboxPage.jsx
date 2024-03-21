@@ -13,7 +13,7 @@ import Avatar from "react-avatar";
 import Loader from "../../components/Layout/Loader";
 import Header from "../../components/Layout/Header";
 import SellerHeader from "../../components/Layout/SellerHeader";
-const ENDPOINT = "https://socket-ongp.onrender.com/";
+const ENDPOINT = "https://socket-9hvq.onrender.com/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const ShopInboxPage = () => {
