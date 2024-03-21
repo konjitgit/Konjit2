@@ -11,7 +11,7 @@ import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
 import Avatar from "react-avatar";
 import Loader from "../components/Layout/Loader";
-const ENDPOINT = "https://socket-ongp.onrender.com/";
+const ENDPOINT = "https://socket-9hvq.onrender.com/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const UserInbox = () => {
