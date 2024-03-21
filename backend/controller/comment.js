@@ -2,7 +2,7 @@ const express = require("express");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 const connectDatabase = require("../db/Database");
-const Comment = require("../models/Comments");
+const Comment = require("../models/comment");
 const commentRouter = express.Router();
 // Add comment route
 commentRouter.post(
