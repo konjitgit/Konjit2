@@ -260,7 +260,6 @@ const Dropdown = ({ props }) => {
                   )
                 ) : (
                   <RxAvatar
-                    size={30}
                     color="#444"
                     title=""
                     className="cursor-pointer text-[25px]"
@@ -291,6 +290,17 @@ const Dropdown = ({ props }) => {
                 {wishlist && wishlist.length}
               </span>
             </div> */}
+           <Link to={isSeller ? "/shop-products" : "/shop-login"}>
+              {isSeller ? (
+                <AiOutlineShop
+                  color="#444"
+                  title="Go to shop"
+                  className="cursor-pointer  text-[25px] "
+                />
+              ) : (
+                <></>
+              )}
+            </Link>
           </div>
           {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
         </div>
